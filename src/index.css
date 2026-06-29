@@ -1,0 +1,497 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Inter:wght@400;600;700&display=swap');
+
+:root {
+  --bg: #12151f;
+  --bg-panel: #1b2030;
+  --bg-panel-2: #242b3d;
+  --border: #31384c;
+  --text: #c7d0e0;
+  --text-dim: #8b95a8;
+  --text-bright: #f4f7ff;
+  --gold: #f5c542;
+  --hp-player: #4ade80;
+  --hp-enemy: #f87171;
+  --accent: #4da3ff;
+  --accent-2: #7c5cff;
+  --common: #9aa4b8;
+  --rare: #4da3ff;
+  --epic: #c084fc;
+  --shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  --radius: 16px;
+  --font-display: 'Baloo 2', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top, rgba(77, 163, 255, 0.12), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(124, 92, 255, 0.12), transparent 30%),
+    var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+}
+
+button {
+  font: inherit;
+}
+
+.app-shell {
+  width: 100%;
+  max-width: 480px;
+  min-height: 100svh;
+  margin: 0 auto;
+  padding: 16px 16px 28px;
+}
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation: fade-in 0.25s ease;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.screen-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.screen-header.compact h2 {
+  margin: 4px 0 0;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  color: var(--text-bright);
+  font-family: var(--font-display);
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: 2.4rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+h3 {
+  font-size: 1rem;
+}
+
+.gold-badge,
+.run-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(245, 197, 66, 0.12);
+  border: 1px solid rgba(245, 197, 66, 0.35);
+  color: var(--gold);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.hero-panel,
+.result-banner,
+.next-enemy-preview,
+.upgrade-card,
+.stat-card,
+.buff-card {
+  background: linear-gradient(180deg, var(--bg-panel-2), var(--bg-panel));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.hero-panel {
+  padding: 24px 20px;
+  text-align: center;
+}
+
+.hero-sprite,
+.fighter-sprite,
+.result-icon,
+.upgrade-icon {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.hero-panel p,
+.upgrade-body p,
+.next-enemy-preview p {
+  margin: 10px 0 0;
+  color: var(--text-dim);
+}
+
+.stats-grid,
+.result-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.stat-card {
+  padding: 14px 12px;
+  text-align: center;
+}
+
+.stat-card span {
+  display: block;
+  color: var(--text-dim);
+  font-size: 0.78rem;
+}
+
+.stat-card strong {
+  display: block;
+  margin-top: 6px;
+  color: var(--text-bright);
+  font-size: 1.1rem;
+}
+
+.action-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease, border-color 0.15s ease;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  border-color: transparent;
+  color: white;
+  font-weight: 700;
+}
+
+.btn-secondary,
+.btn-daily,
+.btn-buy {
+  background: var(--bg-panel);
+  color: var(--text-bright);
+}
+
+.btn-large {
+  padding: 18px 16px;
+  font-size: 1.05rem;
+}
+
+.buff-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.buff-card {
+  display: flex;
+  gap: 14px;
+  width: 100%;
+  padding: 16px;
+  text-align: left;
+  color: inherit;
+}
+
+.buff-card:hover {
+  border-color: rgba(77, 163, 255, 0.6);
+}
+
+.buff-card-icon {
+  font-size: 2rem;
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.buff-card-body h3 {
+  margin-top: 4px;
+  font-size: 1.1rem;
+}
+
+.buff-card-body p {
+  margin: 6px 0 0;
+  color: var(--text-dim);
+  font-size: 0.92rem;
+}
+
+.buff-rarity,
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.rarity-common {
+  color: var(--common);
+  border-color: rgba(154, 164, 184, 0.35);
+}
+
+.rarity-rare {
+  color: var(--rare);
+  border-color: rgba(77, 163, 255, 0.35);
+}
+
+.rarity-epic {
+  color: var(--epic);
+  border-color: rgba(192, 132, 252, 0.35);
+}
+
+.buff-card.rarity-rare,
+.chip.rarity-rare {
+  box-shadow: inset 0 0 0 1px rgba(77, 163, 255, 0.25);
+}
+
+.buff-card.rarity-epic,
+.chip.rarity-epic {
+  box-shadow: inset 0 0 0 1px rgba(192, 132, 252, 0.3);
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+}
+
+.next-enemy-preview {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+}
+
+.next-enemy-preview span {
+  font-size: 2rem;
+}
+
+.battle-arena {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(36, 43, 61, 0.95), rgba(27, 32, 48, 0.95));
+  border: 1px solid var(--border);
+}
+
+.fighter {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fighter-sprite {
+  text-align: center;
+  animation: bob 1.4s ease-in-out infinite;
+}
+
+.fighter-sprite.boss {
+  font-size: 3.6rem;
+  filter: drop-shadow(0 0 12px rgba(248, 113, 113, 0.35));
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.vs-badge {
+  align-self: center;
+  font-family: var(--font-display);
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.health-bar-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+}
+
+.health-bar-track {
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.health-bar-fill {
+  height: 100%;
+  border-radius: inherit;
+  transition: width 0.25s ease;
+}
+
+.health-bar.player .health-bar-fill {
+  background: linear-gradient(90deg, #22c55e, var(--hp-player));
+}
+
+.health-bar.enemy .health-bar-fill {
+  background: linear-gradient(90deg, #ef4444, var(--hp-enemy));
+}
+
+.fighter-stats {
+  display: flex;
+  gap: 10px;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+.battle-log {
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border);
+}
+
+.battle-log ul {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.battle-log li {
+  font-size: 0.88rem;
+  color: var(--text-dim);
+}
+
+.log-player {
+  color: #86efac;
+}
+
+.log-enemy {
+  color: #fca5a5;
+}
+
+.log-buff {
+  color: #c4b5fd;
+}
+
+.log-system {
+  color: var(--gold);
+}
+
+.result-banner {
+  padding: 28px 20px;
+  text-align: center;
+}
+
+.result-banner.win {
+  box-shadow: inset 0 0 0 1px rgba(74, 222, 128, 0.25);
+}
+
+.result-banner.lose {
+  box-shadow: inset 0 0 0 1px rgba(248, 113, 113, 0.25);
+}
+
+.upgrade-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.upgrade-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 14px;
+}
+
+.upgrade-title {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: center;
+}
+
+.upgrade-title span {
+  color: var(--text-dim);
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+.btn-buy {
+  min-width: 88px;
+}
+
+@media (max-width: 380px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .stats-grid,
+  .result-stats {
+    grid-template-columns: 1fr;
+  }
+}
